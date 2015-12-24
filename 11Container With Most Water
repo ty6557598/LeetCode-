@@ -1,1 +1,17 @@
-
+class Solution {
+public://这道题应用了快速排序里面的双指针的思想，一个指针指向头 一个指针指向尾，然后根据相应的关系再移动指针进行计算
+//从中间向两边亦或者从两边向中间都是应用很广的
+    int maxArea(vector<int>& height) {
+        unsigned int max = 0,left = 0, right = height.size()-1,temp=0,temp1=0;
+        while(left<right){
+            temp = (height[left] > height[right])?height[right]:height[left];
+            temp1 = temp*(right-left);
+            if(temp1>max) max = temp1;
+            if(height[left]<height[right])
+                left++;
+                else
+                right--;
+                }
+        return max;
+         }
+};
